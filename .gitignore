@@ -1,0 +1,15 @@
+# ignore go build directory
+/target
+/vendor
+
+# ignore nix config directories/files
+/result*
+.direnv
+.pre-commit-config.yaml
+
+# ignore process-compose data
+/data
+
+# misc
+*.tar.gz
+*.txt

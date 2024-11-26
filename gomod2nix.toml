@@ -1,0 +1,33 @@
+schema = 3
+
+[mod]
+  [mod."github.com/labstack/echo/v4"]
+    version = "v4.12.0"
+    hash = "sha256-TPXJv/6C53bnmcEYxa9g5Mft8u/rLT96q64tQ9+RtKU="
+  [mod."github.com/labstack/gommon"]
+    version = "v0.4.2"
+    hash = "sha256-395+BETDpv15L2lsCiEccwakXgEQxKHlYBAU0Ot3qhY="
+  [mod."github.com/mattn/go-colorable"]
+    version = "v0.1.13"
+    hash = "sha256-qb3Qbo0CELGRIzvw7NVM1g/aayaz4Tguppk9MD2/OI8="
+  [mod."github.com/mattn/go-isatty"]
+    version = "v0.0.20"
+    hash = "sha256-qhw9hWtU5wnyFyuMbKx+7RB8ckQaFQ8D+8GKPkN3HHQ="
+  [mod."github.com/valyala/bytebufferpool"]
+    version = "v1.0.0"
+    hash = "sha256-I9FPZ3kCNRB+o0dpMwBnwZ35Fj9+ThvITn8a3Jr8mAY="
+  [mod."github.com/valyala/fasttemplate"]
+    version = "v1.2.2"
+    hash = "sha256-gp+lNXE8zjO+qJDM/YbS6V43HFsYP6PKn4ux1qa5lZ0="
+  [mod."golang.org/x/crypto"]
+    version = "v0.29.0"
+    hash = "sha256-sqckobR2VWucCgb7xpY2wLktnAA+XyXJbhCm80yCo78="
+  [mod."golang.org/x/net"]
+    version = "v0.31.0"
+    hash = "sha256-G+vGyCnn8jywmX3KvsIwhZkOv3+oAERNNeCeiQqfIL0="
+  [mod."golang.org/x/sys"]
+    version = "v0.27.0"
+    hash = "sha256-BXQcF9RrJ55Pq7Nl67TeFGkgkyuKkQ8hHKN4/L4ggWc="
+  [mod."golang.org/x/text"]
+    version = "v0.20.0"
+    hash = "sha256-YP8zSo2e9okqhxVB8me8sJyij2O0tTQEg5t+8bsIUx8="
