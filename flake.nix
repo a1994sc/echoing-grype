@@ -125,31 +125,48 @@
               packages.gomod2nix
             ];
           };
-          packages.default = pkgs.buildGoApplication {
-            inherit pname version;
-            pwd = ./.;
-            src = ./.;
-            modules = ./gomod2nix.toml;
-
-            CGO_ENABLED = 0;
-
-            ldflags = [
-              "-s"
-              "-w"
-              "-X github.com/a1994sc/echoing-grype/route.version=v${version}"
-              "-X github.com/a1994sc/echoing-grype/route.commit=${commit}"
-            ];
-          };
-          packages.gomod2nix = inputs.gomod2nix.packages.${system}.default.overrideAttrs (
-            final: prev: {
-              patches = [
-                (pkgs.fetchpatch2 {
-                  url = "https://github.com/nix-community/gomod2nix/commit/f5ce6cf5a48ba9cb3d6e670fae1cd104d45eea44.patch";
-                  hash = "sha256-DPJh0o4xiPSscXWyEcp2TfP8DwoV6qGublr7iGT0QLs=";
-                })
+          packages = {
+            default = pkgs.buildGoApplication {
+              inherit pname version;
+              pwd = ./.;
+              src = ./.;
+              modules = ./gomod2nix.toml;
+              CGO_ENABLED = 0;
+              ldflags = [
+                "-s"
+                "-w"
+                "-X github.com/a1994sc/echoing-grype/route.version=v${version}"
+                "-X github.com/a1994sc/echoing-grype/route.commit=${commit}"
               ];
-            }
-          );
+            };
+            image = pkgs.dockerTools.buildImage {
+              name = "ghcr.io/a1994sc/golang/" + self'.packages.default.pname;
+              tag = version + "-" + (if (self ? shortRev) then self.shortRev else "dirty");
+              config = {
+                Cmd = [ "/bin/${self'.packages.default.pname}" ];
+                Labels = {
+                  "org.opencontainers.image.description" = "OCI image of ${self'.packages.default.pname}";
+                  "org.opencontainers.image.source" = "https://github.com/a1994sc/rust-adventure";
+                  "org.opencontainers.image.version" = version;
+                  "org.opencontainers.image.licenses" = "MIT";
+                  "org.opencontainers.image.revision" = if (self ? rev) then self.rev else "dirty";
+                };
+              };
+              uid = 60000;
+              gid = 60000;
+              copyToRoot = self'.packages.default;
+            };
+            gomod2nix = inputs.gomod2nix.packages.${system}.default.overrideAttrs (
+              final: prev: {
+                patches = [
+                  (pkgs.fetchpatch2 {
+                    url = "https://github.com/nix-community/gomod2nix/commit/f5ce6cf5a48ba9cb3d6e670fae1cd104d45eea44.patch";
+                    hash = "sha256-DPJh0o4xiPSscXWyEcp2TfP8DwoV6qGublr7iGT0QLs=";
+                  })
+                ];
+              }
+            );
+          };
           formatter = treefmtEval.config.build.wrapper;
           checks.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;

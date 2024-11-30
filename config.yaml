@@ -1,0 +1,4 @@
+port: 1337
+db:
+  update-url: https://toolbox-data.anchore.io/grype/databases/listing.json
+  mutate-url: https://example.com
