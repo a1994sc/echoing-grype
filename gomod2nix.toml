@@ -8,8 +8,8 @@ schema = 3
     version = "v1.0.0"
     hash = "sha256-xsRCmYyBfglMxeWUvTZqkaRLSW+V2FvNodEDjTGg1WA="
   [mod."github.com/labstack/echo/v4"]
-    version = "v4.13.0"
-    hash = "sha256-oNuNeAdTEcH2qgG1l5bn7JWPi+ka1Tb807KTbATCJ5w="
+    version = "v4.13.1"
+    hash = "sha256-8aMVnphvX4VC/cGUJDWrc3Wk/GUHvGNtDGANDSqmru0="
   [mod."github.com/labstack/gommon"]
     version = "v0.4.2"
     hash = "sha256-395+BETDpv15L2lsCiEccwakXgEQxKHlYBAU0Ot3qhY="

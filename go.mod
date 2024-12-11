@@ -5,7 +5,7 @@ go 1.22.0
 toolchain go1.23.3
 
 require (
-	github.com/labstack/echo/v4 v4.13.0
+	github.com/labstack/echo/v4 v4.13.1
 	github.com/labstack/gommon v0.4.2
 	github.com/spf13/viper v1.19.0
 )
