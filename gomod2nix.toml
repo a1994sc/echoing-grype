@@ -38,8 +38,8 @@ schema = 3
     version = "v1.0.6"
     hash = "sha256-NjrK0FZPIfO/p2xtL1J7fOBQNTZAPZOC6Cb4aMMvhxI="
   [mod."github.com/spf13/viper"]
-    version = "v1.20.0"
-    hash = "sha256-iNauBYA4qlIKTh5R5OQAynX1sxSyxKJajEUfprtkg3w="
+    version = "v1.20.1"
+    hash = "sha256-gbCM0k7RAlvn7jpSuWB2LX5Nip9vgwsPNGbDXTI7JvM="
   [mod."github.com/subosito/gotenv"]
     version = "v1.6.0"
     hash = "sha256-LspbjTniiq2xAICSXmgqP7carwlNaLqnCTQfw2pa80A="
